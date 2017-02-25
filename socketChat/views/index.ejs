@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>聊天室</title>
+    <link rel='stylesheet' href='//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css' />
+      <style>
+          html,body{
+              width: 100%;
+              height: 100%;
+          }
+          .header:after{
+              content: '';
+              display: inline-block;
+              height: 100%;
+              vertical-align: middle;
+          }
+          .header >*{
+              display: inline-block;
+              vertical-align: middle;
+          }
+          .header h3{
+              margin: 10px 0;
+          }
+          .content{
+              height: 80%;
+              overflow: hidden;
+          }
+          .msg-panel,.content>div{
+              height:100%;
+          }
+          .msg-panel{
+              position: relative;
+          }
+          .msg-header{
+              position:absolute;
+              top:0;
+              left: 0;
+              width: 100%;
+          }
+          .msg-box{
+              height:100%;
+              overflow-y: scroll;
+              padding-bottom: 0;
+              padding-top: 38px;
+          }
+          .send-msg{
+              outline: none;
+              border:none;
+              width: 100%;
+              line-height: 20px;
+              padding: 10px;
+          }
+          .send-box{
+              position: relative;
+          }
+          .send-box button{
+              position: absolute;
+              right: 0;
+              top:0;
+              border: none;
+              padding: 0 10px;
+              line-height: 40px;
+              border-radius: 2px;
+          }
+      </style>
+  </head>
+  <body class="container">
+      <div class="header">
+          <h3>欢迎您：<strong><%= username %></strong></h3>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/logout" class="label label-success">退出</a>
+      </div>
+
+      <div class="row content">
+          <div class="col-xs-8">
+              <div class="panel panel-default msg-panel">
+                  <div class="panel-heading msg-header">
+                      <h3 class="panel-title">消息窗口</h3>
+                  </div>
+                  <div class="panel-body msg-box">
+                      <ul class="msg-list">
+                      </ul>
+                  </div>
+              </div>
+          </div>
+          <div class="col-xs-4">
+              <h3>当前在线</h3>
+              <div class="list-group user-list">
+              </div>
+          </div>
+      </div>
+      <div class="panel panel-default send-box">
+            <input type="text" class="panel-body send-msg"/><button class="send-btn btn-primary">Send</button>
+      </div>
+      <script src="/javascripts/socket.io-1.4.5.js"></script>
+      <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+      <!--<script src='//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>-->
+      <script src="/javascripts/chat.js"></script>
+      <script>
+
+      </script>
+  </body>
+</html>

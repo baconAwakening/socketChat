@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>登录</title>
+
+    <link rel='stylesheet' href='//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css' />
+    <link rel='stylesheet' href='//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js' />
+    <style>
+        html{
+            width:100%;
+            height: 100%;
+        }
+        body{
+            position: relative;
+            width: 100%;
+            height:100%;
+        }
+        .form-horizontal{
+            height: 200px;
+            position: absolute;
+            top:0;
+            left:0;
+            right: 0;
+            bottom:0;
+            margin: auto;
+        }
+    </style>
+</head>
+<body class="container">
+    <%if(!isLogined){%>
+            <form class="form-horizontal col-sm-6" method="post" action="/login">
+                <%if(typeof error != 'undefined'){%>
+                    <%if(error){%>
+                    <p>账号密码错误，请重新输入!!!!</p>
+                    <%}%>
+                <%}%>
+                <div class="form-group">
+                    <label for="userId" class="col-sm-2 control-label">user</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="userId" name="userId" placeholder="user" value="">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="password" class="col-sm-2 control-label">Password</label>
+                    <div class="col-sm-10">
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Password" value="">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox"> Remember me
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-default">login in</button>
+                        <a href="/register">没有账号？点击注册！</a>
+                    </div>
+                </div>
+            </form>
+    <%}else{%>
+        <a href="/index">您已登录过，直接访问聊天</a>
+    <%}%>
+</body>
+</html>

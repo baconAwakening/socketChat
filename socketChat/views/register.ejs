@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>登录</title>
+
+    <link rel='stylesheet' href='//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css' />
+    <link rel='stylesheet' href='//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js' />
+    <style>
+        html{
+            width:100%;
+            height: 100%;
+        }
+        body{
+            position: relative;
+            width: 100%;
+            height:100%;
+        }
+        .form-horizontal{
+            height: 200px;
+            position: absolute;
+            top:0;
+            left:0;
+            right: 0;
+            bottom:0;
+            margin: auto;
+        }
+    </style>
+</head>
+<body class="container">
+
+    <form class="form-horizontal col-sm-6" method="post">
+        <%if(typeof registered != 'undefined'){%>
+            <%if(registered){%>
+                <p>账户已注册请重新创建账户!!!!</p>
+            <%}%>
+        <%}%>
+        <div class="form-group">
+            <label for="registerUser" class="col-sm-2 control-label">user</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="registerUser" name="registerUser" placeholder="registerUser" value="">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="registerPassword" class="col-sm-2 control-label">Password</label>
+            <div class="col-sm-10">
+                <input type="password" class="form-control" id="registerPassword" name="registerPassword" placeholder="registerPassword" value="">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-default">register</button>
+                <a href="/">已有账号，立即登录</a>
+            </div>
+        </div>
+
+    </form>
+</body>
+</html>
